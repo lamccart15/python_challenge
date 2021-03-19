@@ -55,16 +55,12 @@ max_profit_decrease = min(profit_change)
             #max_profit_increase_month = months_list[i]
             
     #print(months_list[i])
-    
-        for row in csvreader:
-            profit_list.append(int(row[1]))
-            months_list.append(row[0])
 
-            max_profit_increase_index = profit_list.index(max_profit_increase)
-            max_profit_decrease_index = profit_list.index(max_profit_decrease)
+max_profit_increase_index = profit_list.index(max_profit_increase)
+max_profit_decrease_index = profit_list.index(max_profit_decrease)
   
-    print(max_profit_increase_index)
-    print(max_profit_decrease_index)
+print(max_profit_increase_index)
+print(max_profit_decrease_index)
    
 
 #print analysis to the terminal 
