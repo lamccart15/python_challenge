@@ -16,14 +16,17 @@ with open(csvpath) as csvfile:
     li_votes = 0 
     otooley_votes = 0 
 
-# Start loop after header
+# Start loop after header and initiate candidate_list
     header = next(csvreader)
+
+    candidate_list = []
 
 #Calculate total number of votes cast
     for row in csvreader:
         total_votes += 1
 
-#Provide complete list of candidates who recieved votes
+#Provide complete list of candidates 
+        candidate_list.append(row[2])  
 
 #Calculate total number of votes each candidate won
         if(row[2]== "Khan"):
@@ -35,15 +38,16 @@ with open(csvpath) as csvfile:
         elif(row[2]== "O'Tooley"): 
             otooley_votes = otooley_votes + 1
 
+#Provide unique list of candidates (outside of loop)
+unique_list = list(dict.fromkeys(candidate_list))        
+
 #Calculate percentage of votes each candidate won
 khan_percent = round((khan_votes / total_votes),4) * 100
 correy_percent = round((correy_votes / total_votes),4) * 100
-li_percent = round((li_votes / total_votes),4) * 100
+li_percent = round((li_votes / total_votes), 4) * 100
 otooley_percent = round((otooley_votes / total_votes),4) * 100
 
-
 #Calculate winner of the election based on popular vote 
-
 total_votes_list = [int(khan_votes), int(correy_votes), int(li_votes), int(otooley_votes)]
 winner = max(total_votes_list)
 
