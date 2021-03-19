@@ -18,16 +18,16 @@ with open(csvpath) as csvfile:
     header = next(csvreader)
  
     profit_list = []
-
+    months_list = []
 # total number of months included in the dataset
 # total amount of Profit/Loss over entire period
     for row in csvreader: 
         net_total += int(row[1])
         profit_list.append(int(row[1]))
+        months_list.append(row[0])
         month_count += 1
 
 #calculate changes in "Profit/Losses" over the entire period 
-    months_list = []
     profit_change = []
     a = 0 
     b = 1 
@@ -45,6 +45,27 @@ average_profit_change = round(total_profit_change / len(profit_change), 2)
 #Calculate the greatest increase in profits and greatest decrease in losses (date and amount) over period
 max_profit_increase = max(profit_change)
 max_profit_decrease = min(profit_change)
+
+#determine month of max profit increase/decrease
+#def find(target, profit_list):
+    #for i in range(len(profit_list)):
+        #if profit_list[i] == max_profit_increase:
+            #yield i 
+
+            #max_profit_increase_month = months_list[i]
+            
+    #print(months_list[i])
+    
+        for row in csvreader:
+            profit_list.append(int(row[1]))
+            months_list.append(row[0])
+
+            max_profit_increase_index = profit_list.index(max_profit_increase)
+            max_profit_decrease_index = profit_list.index(max_profit_decrease)
+  
+    print(max_profit_increase_index)
+    print(max_profit_decrease_index)
+   
 
 #print analysis to the terminal 
 print("Financial Analysis")
