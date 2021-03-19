@@ -47,21 +47,12 @@ max_profit_increase = max(profit_change)
 max_profit_decrease = min(profit_change)
 
 #determine month of max profit increase/decrease
-#def find(target, profit_list):
-    #for i in range(len(profit_list)):
-        #if profit_list[i] == max_profit_increase:
-            #yield i 
 
-            #max_profit_increase_month = months_list[i]
-            
-    #print(months_list[i])
+max_profit_increase_index = profit_change.index(max_profit_increase)
+max_profit_decrease_index = profit_change.index(max_profit_decrease)
 
-max_profit_increase_index = profit_list.index(max_profit_increase)
-max_profit_decrease_index = profit_list.index(max_profit_decrease)
-  
-print(max_profit_increase_index)
-print(max_profit_decrease_index)
-   
+max_increase_month = months_list[(max_profit_increase_index)+1]
+max_decrease_month = months_list[(max_profit_decrease_index)+1]   
 
 #print analysis to the terminal 
 print("Financial Analysis")
@@ -69,8 +60,8 @@ print("--------------------------")
 print("Total Months: " + str(month_count))
 print("Total: " + "$" + str(net_total))
 print("Average change: " + "$" + str(average_profit_change))
-#print("Greatest Increase in Profits: " + date + max_profit_increase)
-#print("Greatest Decrease in Profits: " + date + max_profit_decrease)
+print("Greatest Increase in Profits: " + str(max_increase_month) + " $" + str(max_profit_increase))
+print("Greatest Decrease in Profits: " + str(max_decrease_month) + " $" + str(max_profit_decrease))
 
 
 #export text file with results 
