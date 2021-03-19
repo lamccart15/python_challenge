@@ -1,16 +1,72 @@
+#import modules
 import os
 import csv
 
+#create path
+csvpath = os.path.join("Resources", "election_data.csv")
+
+#open file and specify container and delimiter
+with open(csvpath) as csvfile: 
+    csvreader = csv.reader(csvfile, delimiter= ',')
+
+# Initiate counter and define starting values
+    total_votes = 0 
+    khan_votes = 0 
+    correy_votes = 0 
+    li_votes = 0 
+    otooley_votes = 0 
+
+# Start loop after header
+    header = next(csvreader)
+
 #Calculate total number of votes cast
+    for row in csvreader:
+        total_votes += 1
 
 #Provide complete list of candidates who recieved votes
 
-#Calculate percentage of votes each candidate won
-
 #Calculate total number of votes each candidate won
+        if(row[2]== "Khan"):
+            khan_votes = khan_votes + 1
+        elif(row[2]== "Correy"):
+            correy_votes = correy_votes + 1
+        elif(row[2]== "Li"):
+            li_votes = li_votes + 1
+        elif(row[2]== "O'Tooley"): 
+            otooley_votes = otooley_votes + 1
+
+#Calculate percentage of votes each candidate won
+khan_percent = round((khan_votes / total_votes),4) * 100
+correy_percent = round((correy_votes / total_votes),4) * 100
+li_percent = round((li_votes / total_votes),4) * 100
+otooley_percent = round((otooley_votes / total_votes),4) * 100
+
 
 #Calculate winner of the election based on popular vote 
 
+total_votes_list = [int(khan_votes), int(correy_votes), int(li_votes), int(otooley_votes)]
+winner = max(total_votes_list)
+
+if winner == khan_votes:
+    winner = "Khan"
+elif winner == correy_votes:
+    winner = "Correy"
+elif winner == li_votes:
+    winner = "Li"
+elif winner == otooley_votes:
+    winner = "O'Tooley"
+
 #print analysis in terminal
+print("Election Results")
+print("--------------------------")
+print("Total Votes: " + str(total_votes))
+print("--------------------------")
+print("Khan: " + str(khan_percent) + "% " + "(" + str(khan_votes) + ")")
+print("Correy: " + str(correy_percent) + "% " + "(" + str(correy_votes) + ")")
+print("Li: " + str(li_percent) + "% " + "(" + str(li_votes) + ")")
+print("O'Tooley: " + str(otooley_percent) + "% " + "(" + str(otooley_votes) + ")")
+print("--------------------------")
+print("Winner: " + winner)
+print("--------------------------")
 
 #export text file with results 
