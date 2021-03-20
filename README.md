@@ -6,11 +6,11 @@ This challenge includes two components in which Python scripts were created to a
 
 PyBank is a program created to analyze financial records to calculate the following: 
 
-*Total number of months included in the dataset
-*Net total amount of Profit/Losses over the period
-*Average change in profit/losses over the period
-*Greatest increase in profits over the period (including the date of that increase)
-*Greatest decrease in losses over the period (including the date of that decrease)
+    Total number of months included in the dataset
+    Net total amount of Profit/Losses over the period
+    Average change in profit/losses over the period
+    Greatest increase in profits over the period (including the date of that increase)
+    Greatest decrease in losses over the period (including the date of that decrease)
     
 The python script is written to then print the above information into the terminal, as well output the information as a text file in the Analysis folder. The dataset is included in an excel file within the Resources folder. 
 
