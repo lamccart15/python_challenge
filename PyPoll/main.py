@@ -74,3 +74,17 @@ print("Winner: " + winner)
 print("--------------------------")
 
 #export text file with results 
+output_file = os.path.join("Analysis", "PyPollAnalysis.txt")
+with open(output_file, "w") as f:
+    print("Election Results", file = f)
+    print("--------------------------", file = f)
+    print("Total Votes: " + str(total_votes), file = f)
+    print("--------------------------", file = f)
+    print("Khan: " + str(khan_percent) + "% " + "(" + str(khan_votes) + ")", file = f)
+    print("Correy: " + str(correy_percent) + "% " + "(" + str(correy_votes) + ")", file = f)
+    print("Li: " + str(li_percent) + "% " + "(" + str(li_votes) + ")", file = f)
+    print("O'Tooley: " + str(otooley_percent) + "% " + "(" + str(otooley_votes) + ")", file = f)
+    print("--------------------------", file = f)
+    print("Winner: " + winner, file = f)
+    print("--------------------------", file = f)
+f.close()
